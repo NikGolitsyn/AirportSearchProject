@@ -1,5 +1,6 @@
 node_modules
 review_build
+.prettierrc
 .idea
 .VS_Code
 package-lock.json

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import qs from "qs";
 import { currentDate } from "../../utils/flight.utils";
 import SearchForm from "./SearchForm.jsx";
-import qs from "qs";
 
 const SearchFlightInput = () => {
   const { search, pathname } = useLocation();

@@ -1,5 +1,5 @@
 import React from "react";
-import ListHeaderElement from "./ListHeaderElement";
+import ListHeaderElement from "./ListHeaderElement.jsx";
 import { listHeaderColumns } from "../../utils/flight.utils";
 
 const ListHeader = () => (

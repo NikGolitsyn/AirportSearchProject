@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useParams, useLocation } from "react-router-dom";
+import qs from "qs";
 import { setFlights } from "../../utils/flight.utils";
 import { sortedFlightsListSelector } from "../../flights.selectors";
 import * as flightsActionCreator from "../../flights.actions";
-import ListHeader from "./ListHeader";
-import Flight from "./Flight";
-import qs from "qs";
+import ListHeader from "./ListHeader.jsx";
+import Flight from "./Flight.jsx";
 
 const FlightsList = ({ sortedFlights, getFlights }) => {
   const { flightsType } = useParams();
