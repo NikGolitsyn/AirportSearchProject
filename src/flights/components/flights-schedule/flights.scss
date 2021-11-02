@@ -1,0 +1,105 @@
+.flights-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+  border-radius: 8px;
+  padding: 8px;
+  padding: 40px 0 20px;
+}
+
+.search-results {
+  min-width: 1140px;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin: auto;
+    width: 100%;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      height: 66px;
+      background-color: #fff;
+      padding: 8px;
+
+      &-header {
+        padding: 100px 12px 20px;
+      }
+
+      &:nth-of-type(even) {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.list-item-cell {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  line-height: 40px;
+  padding: 0 5px;
+
+  &_term {
+    font-weight: 700;
+    border-radius: 50%;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 22px;
+
+    &-A {
+      color: #63c745;
+      border: 1px solid #63c745;
+    }
+
+    &-B {
+      color: #1eb7ee;
+      border: 1px solid #1eb7ee;
+    }
+  }
+
+  &_logo {
+    width: 63px;
+    height: 37px;
+    padding-right: 5px;
+  }
+
+  &_terminal {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &_time {
+    width: 100px;
+  }
+
+  &_way {
+    width: 210px;
+  }
+
+  &_status {
+    width: 230px;
+  }
+
+  &_airline {
+    width: 220px;
+  }
+
+  &_flight {
+    width: 80px;
+  }
+
+  &-header {
+    padding: 12px;
+    color: #95989a;
+    font-size: 90%;
+    font-weight: bold;
+  }
+}

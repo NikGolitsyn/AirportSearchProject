@@ -1,0 +1,38 @@
+.loupe {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+}
+
+.search__svg {
+  width: 44px;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.rectangle {
+  width: 44px;
+  height: 43px;
+  fill: none;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 15px;
+  position: relative;
+  top: 15px;
+  fill: #fff;
+
+  &_active {
+    display: inline-block;
+    margin-right: 15px;
+    position: relative;
+    top: 15px;
+    fill: #1eb7ee;
+  }
+}
