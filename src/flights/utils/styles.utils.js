@@ -18,12 +18,15 @@ const addClasses = (element) => {
 };
 
 export const setButtonActive = (targetButtonClass) => {
+  let btnClass;
   if (targetButtonClass === "") {
     return null;
   }
 
-  const targetBtn = document.querySelector(targetButtonClass);
-  const otherBtnClass = getBtnClass(targetButtonClass);
+  btnClass = `.navigation__item-${targetButtonClass}`;
+
+  const targetBtn = document.querySelector(btnClass);
+  const otherBtnClass = getBtnClass(btnClass);
   const otherBtn = document.querySelector(otherBtnClass);
 
   if (otherBtn.classList.contains("navigation__item_active")) {

@@ -9,12 +9,11 @@ const FlightsSchedule = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    if (!pathname.includes("departures") || !pathname.includes("arrivals")) {
+    if (!pathname.includes("departures") && !pathname.includes("arrivals")) {
       return null;
     }
-
     setButtonActive(pathname.substr(1));
-  }, []);
+  }, [pathname]);
 
   return (
     <>

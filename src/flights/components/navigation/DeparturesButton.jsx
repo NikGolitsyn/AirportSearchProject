@@ -1,10 +1,8 @@
 import React from 'react';
-import { setButtonActive } from '../../utils/styles.utils';
 
 const DeparturesButton = () => (
     <button
       className="navigation__item navigation__item-departures"
-      onClick={() => setButtonActive('.navigation__item-departures')}
     >
       <span className="icon">
         <svg width="40px" height="28px">
