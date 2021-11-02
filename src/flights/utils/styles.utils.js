@@ -1,4 +1,4 @@
-const getBtnClass = targetButtonClass => targetButtonClass === '.navigation__item-departures'
+const getBtnClass = targetButtonClass => targetButtonClass.includes('departures')
     ? '.navigation__item-arrivals'
     : '.navigation__item-departures';
 

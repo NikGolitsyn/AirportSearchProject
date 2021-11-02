@@ -31,7 +31,7 @@ export const setFlights = (searchValue, sortedFlights) =>
       );
 
 export const preventUpdateDepartures = (event, pathname) => {
-  if (pathname !== '/departures') {
+  if (!pathname.includes('/departures')) {
     return null;
   }
 
@@ -39,7 +39,7 @@ export const preventUpdateDepartures = (event, pathname) => {
 };
 
 export const preventUpdateArrivals = (event, pathname) => {
-  if (pathname !== '/arrivals') {
+  if (!pathname.includes('/arrivals')) {
     return null;
   }
   return event.preventDefault();
