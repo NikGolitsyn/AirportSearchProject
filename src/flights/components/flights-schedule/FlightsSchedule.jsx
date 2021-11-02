@@ -12,8 +12,8 @@ const FlightsSchedule = () => {
     if (!pathname.includes("departures") || !pathname.includes("arrivals")) {
       return null;
     }
-    
-    setButtonActive(`.navigation__item-${pathname.substr(1)}`);
+
+    setButtonActive(pathname.substr(1));
   }, []);
 
   return (

@@ -18,7 +18,7 @@ const addClasses = (element) => {
 };
 
 export const setButtonActive = (targetButtonClass) => {
-  if (targetButtonClass === ".navigation__item-") {
+  if (targetButtonClass === "") {
     return null;
   }
 
