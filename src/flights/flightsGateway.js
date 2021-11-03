@@ -1,4 +1,4 @@
-import { currentDate } from './utils/flight.utils';
+import { currentDate } from './utils/query.utils';
 
 const baseUrl = `https://api.iev.aero/api/flights/${currentDate}`;
 

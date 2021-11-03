@@ -1,7 +1,5 @@
 import moment from 'moment';
 
-export const currentDate = moment().format('DD-MM-YYYY');
-
 const statusesAbbreviation = ['DP', 'CK', 'CC', 'ON', 'BD', 'GC', 'FR', 'LN', 'DL', 'CX'];
 
 export const getFlightStatus = (status, timeTakeofFact, timeLandFact) => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import qs from 'qs';
-import { currentDate } from '../../utils/flight.utils';
+import { setQueryParams } from '../../utils/query.utils';
 import SearchForm from './SearchForm.jsx';
 
 const SearchFlightInput = () => {
@@ -17,23 +17,14 @@ const SearchFlightInput = () => {
 
   const inputToQueryParams = (event, input) => {
     event.preventDefault();
-    query.search = input;
-    query.date = currentDate;
 
-    const string = query.search !== '' ? qs.stringify(query) : '';
-
-    history.push({ pathname, search: string });
+    history.push({ pathname, search: setQueryParams(query, input) });
   };
 
   useEffect(() => {
-    query.search = inputFieldValue;
-    query.date = currentDate;
-
-    const string = query.search !== '' ? qs.stringify(query) : `date=${currentDate}`;
-
     history.push({
       pathname,
-      search: string,
+      search: setQueryParams(query, inputFieldValue),
     });
   }, [pathname, query.search]);
 
