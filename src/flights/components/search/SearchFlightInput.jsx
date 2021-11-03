@@ -33,7 +33,7 @@ const SearchFlightInput = () => {
       pathname,
       search: setQueryParams(query, inputFieldValue),
     });
-  }, [pathname, query.search]);
+  }, [pathname]);
 
   return (
     <SearchForm
