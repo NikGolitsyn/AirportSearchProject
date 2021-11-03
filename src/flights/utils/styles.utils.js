@@ -1,33 +1,9 @@
-const getBtnClass = targetButtonClass =>
-  targetButtonClass.includes('departures')
-    ? '.navigation__item-arrivals'
-    : '.navigation__item-departures';
+import classNames from 'classnames';
 
-const removeClasses = element => {
-  element.classList.remove('navigation__item_active');
-  element.firstChild.classList.remove('icon_active');
-  element.classList.add('navigation__item');
-  element.firstChild.classList.add('icon');
-};
+export const pickClass = (className, classNameActive, arg) => classNames(className, {
+    classNameActive: arg,
+  });
 
-const addClasses = element => {
-  element.classList.remove('navigation__item');
-  element.firstChild.classList.remove('icon');
-  element.classList.add('navigation__item_active');
-  element.firstChild.classList.add('icon_active');
-};
-
-export const setButtonActive = targetButtonClass => {
-  if (targetButtonClass === '') {
-    return null;
-  }
-
-  const btnClass = `.navigation__item-${targetButtonClass}`;
-  const otherBtn = document.querySelector(getBtnClass(btnClass));
-
-  if (otherBtn.classList.contains('navigation__item_active')) {
-    removeClasses(otherBtn);
-  }
-
-  return addClasses(document.querySelector(btnClass));
-};
+// const isActive = classNames('navigation__item', {
+//   navigation__item_active: pathname === '/arrivals',
+// });

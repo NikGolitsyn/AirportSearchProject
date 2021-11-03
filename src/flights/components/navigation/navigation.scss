@@ -66,6 +66,10 @@
       border-radius: 60px 60px 0 0 !important;
       color: #1eb7ee;
       z-index: 1;
+
+      &:hover {
+        background-color: #fff;
+      }
     }
   }
 }

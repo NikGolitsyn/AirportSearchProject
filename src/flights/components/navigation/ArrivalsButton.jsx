@@ -6,11 +6,11 @@ const ArrivalsButton = () => {
   const { pathname } = useLocation();
 
   const isActive = classNames('navigation__item', {
-    navigation__item_active: pathname === '/arrivals',
+    'navigation__item_active': pathname === '/arrivals',
   });
 
   const isIconActive = classNames('icon', {
-    icon_active: pathname === '/arrivals',
+    'icon_active': pathname === '/arrivals',
   });
 
   return (
