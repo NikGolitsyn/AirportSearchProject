@@ -10,10 +10,10 @@ const DeparturesButton = () => {
       className={`${selectClass(
         'navigation__item',
         'navigation__item_active',
-        pathname === '/departures',
+        pathname.includes('departures'),
       )} navigation__item-departures`}
     >
-      <span className={selectClass('icon', 'icon_active', pathname === '/departures')}>
+      <span className={selectClass('icon', 'icon_active', pathname.includes('departures'))}>
         <svg width="40px" height="28px">
           <g className="departure-icon" transform="translate(-1.000000, -1.000000)">
             <path

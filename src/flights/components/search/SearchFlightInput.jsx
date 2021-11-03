@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import qs from "qs";
-import { currentDate } from "../../utils/flight.utils";
-import SearchForm from "./SearchForm.jsx";
+import React, { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import qs from 'qs';
+import { currentDate } from '../../utils/flight.utils';
+import SearchForm from './SearchForm.jsx';
 
 const SearchFlightInput = () => {
   const { search, pathname } = useLocation();
   const history = useHistory();
   const query = qs.parse(search.substr(1));
-  const initialInputValue = query.search ? query.search : "";
+  const initialInputValue = query.search ? query.search : '';
   const [inputFieldValue, setInputFieldValue] = useState(initialInputValue);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setInputFieldValue(event.target.value);
   };
 
@@ -20,7 +20,7 @@ const SearchFlightInput = () => {
     query.search = input;
     query.date = currentDate;
 
-    const string = query.search !== "" ? qs.stringify(query) : "";
+    const string = query.search !== '' ? qs.stringify(query) : '';
 
     history.push({ pathname, search: string });
   };
@@ -29,13 +29,13 @@ const SearchFlightInput = () => {
     query.search = inputFieldValue;
     query.date = currentDate;
 
-    const string = query.search !== "" ? qs.stringify(query) : "";
+    const string = query.search !== '' ? qs.stringify(query) : `date=${currentDate}`;
 
     history.push({
       pathname,
       search: string,
     });
-  }, [pathname]);
+  }, [pathname, query.search]);
 
   return (
     <SearchForm

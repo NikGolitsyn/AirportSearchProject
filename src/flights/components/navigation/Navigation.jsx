@@ -8,10 +8,10 @@ const Navigation = () => {
   const { pathname } = useLocation();
   return (
     <div className="navigation">
-      <Link to="/departures" onClick={event => preventUpdateDepartures(event, pathname)}>
+      <Link to={`/departures`} onClick={event => preventUpdateDepartures(event, pathname)}>
         <DeparturesButton />
       </Link>
-      <Link to="/arrivals" onClick={event => preventUpdateArrivals(event, pathname)}>
+      <Link to={`/arrivals`} onClick={event => preventUpdateArrivals(event, pathname)}>
         <ArrivalsButton />
       </Link>
     </div>
