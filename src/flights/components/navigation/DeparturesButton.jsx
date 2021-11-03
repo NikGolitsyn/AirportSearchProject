@@ -1,10 +1,21 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import classNames from 'classnames';
 
-const DeparturesButton = () => (
-    <button
-      className="navigation__item navigation__item-departures"
-    >
-      <span className="icon">
+const DeparturesButton = () => {
+  const { pathname } = useLocation();
+
+  const isActive = classNames('navigation__item', {
+    navigation__item_active: pathname === '/departures',
+  });
+
+  const isIconActive = classNames('icon', {
+    icon_active: pathname === '/departures',
+  });
+
+  return (
+    <button className={`${isActive} navigation__item-departures`}>
+      <span className={isIconActive}>
         <svg width="40px" height="28px">
           <g className="departure-icon" transform="translate(-1.000000, -1.000000)">
             <path
@@ -16,6 +27,7 @@ const DeparturesButton = () => (
       </span>
       Departures
     </button>
-  )
+  );
+};
 
 export default DeparturesButton;
