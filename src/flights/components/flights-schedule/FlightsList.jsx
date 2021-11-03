@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { useParams, useLocation } from "react-router-dom";
-import qs from "qs";
-import { setFlights } from "../../utils/flight.utils";
-import { sortedFlightsListSelector } from "../../flights.selectors";
-import * as flightsActionCreator from "../../flights.actions";
-import ListHeader from "./ListHeader.jsx";
-import Flight from "./Flight.jsx";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { useParams, useLocation } from 'react-router-dom';
+import qs from 'qs';
+import { setFlights } from '../../utils/flight.utils';
+import { sortedFlightsListSelector } from '../../flights.selectors';
+import * as flightsActionCreator from '../../flights.actions';
+import ListHeader from './ListHeader.jsx';
+import Flight from './Flight.jsx';
 
 const FlightsList = ({ sortedFlights, getFlights }) => {
   const { flightsType } = useParams();
@@ -18,11 +18,11 @@ const FlightsList = ({ sortedFlights, getFlights }) => {
   }, [flightsType]);
 
   const query = qs.parse(search.substr(1));
-  const searchValue = query.search ? query.search : "";
+  const searchValue = query.search ? query.search : '';
 
   const flights = setFlights(searchValue, sortedFlights);
 
-  if (flights.length === 0 && searchValue !== "") {
+  if (flights.length === 0 && searchValue !== '') {
     return <div className="nothing-found">No flights</div>;
   }
 
@@ -30,11 +30,11 @@ const FlightsList = ({ sortedFlights, getFlights }) => {
     <div className="search-results">
       <ul className="search-results__list">
         <ListHeader />
-        {flights.map((flight) => (
+        {flights.map(flight => (
           <Flight
             key={flight.ID}
-            cityTo={flight["airportToID.city_en"]}
-            cityFrom={flight["airportFromID.city_en"]}
+            cityTo={flight['airportToID.city_en']}
+            cityFrom={flight['airportFromID.city_en']}
             {...flight}
           />
         ))}
@@ -43,7 +43,7 @@ const FlightsList = ({ sortedFlights, getFlights }) => {
   );
 };
 
-const mapState = (state) => ({
+const mapState = state => ({
   sortedFlights: sortedFlightsListSelector(state),
 });
 

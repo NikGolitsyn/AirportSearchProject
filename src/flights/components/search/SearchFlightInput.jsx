@@ -17,12 +17,19 @@ const SearchFlightInput = () => {
 
   const inputToQueryParams = (event, input) => {
     event.preventDefault();
+    if (!pathname.includes('departures') && !pathname.includes('arrivals')) {
+      return null;
+    }
 
-    history.push({ pathname, search: setQueryParams(query, input) });
+    return history.push({ pathname, search: setQueryParams(query, input) });
   };
 
   useEffect(() => {
-    history.push({
+    if (!pathname.includes('departures') && !pathname.includes('arrivals')) {
+      return null;
+    }
+
+    return history.push({
       pathname,
       search: setQueryParams(query, inputFieldValue),
     });
