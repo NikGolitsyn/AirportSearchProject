@@ -1,21 +1,19 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import classNames from 'classnames';
+import { selectClass } from '../../utils/styles.utils';
 
 const ArrivalsButton = () => {
   const { pathname } = useLocation();
 
-  const isActive = classNames('navigation__item', {
-    'navigation__item_active': pathname === '/arrivals',
-  });
-
-  const isIconActive = classNames('icon', {
-    'icon_active': pathname === '/arrivals',
-  });
-
   return (
-    <button className={`${isActive} navigation__item-arrivals`}>
-      <span className={isIconActive}>
+    <button
+      className={`${selectClass(
+        'navigation__item',
+        'navigation__item_active',
+        pathname === '/arrivals',
+      )} navigation__item-arrivals`}
+    >
+      <span className={selectClass('icon', 'icon_active', pathname === '/arrivals')}>
         <svg width="40px" height="28px" viewBox="0 0 40 28">
           <g transform="translate(-4.000000, -7.000000)">
             <path

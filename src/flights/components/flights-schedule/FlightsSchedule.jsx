@@ -4,8 +4,7 @@ import FlightsList from './FlightsList.jsx';
 import Search from '../search/Search.jsx';
 import Navigation from '../navigation/Navigation.jsx';
 
-const FlightsSchedule = () => {
-  return (
+const FlightsSchedule = () => (
     <>
       <div className="flights-navigation">
         <Search />
@@ -16,6 +15,5 @@ const FlightsSchedule = () => {
       </div>
     </>
   );
-};
 
 export default FlightsSchedule;

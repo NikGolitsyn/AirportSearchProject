@@ -1,8 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { getFlightStatus } from '../../utils/flight.utils';
+import { selectClass } from '../../utils/styles.utils';
 
 const Flight = ({
   term,
@@ -16,10 +16,6 @@ const Flight = ({
   timeToStand,
   status,
 }) => {
-  const terminalClasses = classNames('list-item-cell_term-A', {
-    'list-item-cell_term-B': term !== 'A',
-  });
-
   if (!airline) {
     return null;
   }
@@ -27,7 +23,15 @@ const Flight = ({
   return (
     <li className="search-results__list-item">
       <span className="list-item-cell list-item-cell_terminal">
-        <span className={`list-item-cell_term ${terminalClasses}`}>{term}</span>
+        <span
+          className={`list-item-cell_term ${selectClass(
+            'list-item-cell_term-A',
+            'list-item-cell_term-B',
+            term !== 'A',
+          )}`}
+        >
+          {term}
+        </span>
       </span>
       <span className="list-item-cell list-item-cell_time">
         {!cityFrom ? moment(timeDepShedule).format('H:mm') : moment(timeToStand).format('H:mm')}
