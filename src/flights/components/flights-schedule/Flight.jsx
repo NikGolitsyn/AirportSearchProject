@@ -6,17 +6,16 @@ import { selectClass } from '../../utils/styles.utils';
 
 const Flight = ({
   term,
-  timeDepShedule,
-  airline,
+  airlineLogo,
+  airlineName,
   timeLandFact,
-  cityTo,
-  cityFrom,
+  airport,
   codeShareData,
   timeTakeofFact,
-  timeToStand,
+  localTime,
   status,
 }) => {
-  if (!airline) {
+  if (!airlineLogo) {
     return null;
   }
 
@@ -33,21 +32,16 @@ const Flight = ({
           {term}
         </span>
       </span>
-      <span className="list-item-cell list-item-cell_time">
-        {!cityFrom ? moment(timeDepShedule).format('H:mm') : moment(timeToStand).format('H:mm')}
-      </span>
-      <span className="list-item-cell list-item-cell_way">
-        {cityTo}
-        {cityFrom}
-      </span>
+      <span className="list-item-cell list-item-cell_time">{moment(localTime).format('H:mm')}</span>
+      <span className="list-item-cell list-item-cell_way">{airport}</span>
       <span className="list-item-cell list-item-cell_status">
         {getFlightStatus(status, timeTakeofFact, timeLandFact)}
       </span>
       <span className="list-item-cell list-item-cell_airline">
-        <img className="list-item-cell_logo" src={airline.en.logoSmallName} />
-        {airline.en.name}
+        <img className="list-item-cell_logo" src={airlineLogo} />
+        {airlineName}
       </span>
-      <span className="list-item-cell list-item-cell_flight">{codeShareData[0].codeShare}</span>
+      <span className="list-item-cell list-item-cell_flight">{codeShareData}</span>
     </li>
   );
 };
@@ -56,13 +50,12 @@ export default Flight;
 
 Flight.propTypes = {
   term: PropTypes.string.isRequired,
-  timeDepShedule: PropTypes.string,
   timeLandFact: PropTypes.string,
   timeTakeofFact: PropTypes.string,
-  timeToStand: PropTypes.string,
-  airline: PropTypes.object,
-  cityTo: PropTypes.string,
-  cityFrom: PropTypes.string,
-  codeShareData: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  localTime: PropTypes.string,
+  airlineLogo: PropTypes.string,
+  airlineName: PropTypes.string,
+  airport: PropTypes.string,
+  codeShareData: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
 };

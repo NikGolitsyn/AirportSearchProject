@@ -2,7 +2,6 @@ import { FLIGHTS_LIST_RECIEVED } from './flights.actions';
 
 const initialState = {
   flightsList: [],
-  flightsType: null,
 };
 
 const flightsReducer = (state = initialState, action) => {
@@ -11,7 +10,6 @@ const flightsReducer = (state = initialState, action) => {
       return {
         ...state,
         flightsList: action.payload.flightsList,
-        flightsType: action.payload.flightsType,
       };
     }
 

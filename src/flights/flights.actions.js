@@ -1,27 +1,27 @@
 import * as flightsGateway from './flightsGateway';
+import { mapFlights } from './utils/flight.utils';
 
 export const FLIGHTS_LIST_RECIEVED = 'FLIGHTS_LIST/FLIGHTS_LIST_RECIEVED';
 
-export const flightsListRecieved = (flightsList, flightsType) => ({
+export const flightsListRecieved = (flightsList) => ({
   type: FLIGHTS_LIST_RECIEVED,
   payload: {
     flightsList,
-    flightsType,
   },
 });
 
 export const fetchFlights = flightsType => dispatch => {
   flightsGateway.fetchFlightsList().then(data => {
-    if (flightsType === 'departures') {
+    if (flightsType.includes('departures')) {
       const todaysDepartureList = data.body.departure.filter(
         flight => new Date(flight.timeDepExpectCalc).getDate() === new Date().getDate(),
       );
-      dispatch(flightsListRecieved(todaysDepartureList, 'departure'));
+      dispatch(flightsListRecieved(mapFlights(todaysDepartureList)));
     } else {
       const todaysArrivalList = data.body.arrival.filter(
         flight => new Date(flight.timeToStand).getDate() === new Date().getDate(),
       );
-      dispatch(flightsListRecieved(todaysArrivalList, 'arrival'));
+      dispatch(flightsListRecieved(mapFlights(todaysArrivalList)));
     }
   });
 };

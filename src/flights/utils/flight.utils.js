@@ -25,7 +25,7 @@ export const setFlights = (searchValue, sortedFlights) =>
   searchValue === ''
     ? sortedFlights
     : sortedFlights.filter(flight =>
-        flight.codeShareData[0].codeShare.toLowerCase().includes(searchValue.toLowerCase()),
+        flight.codeShareData.toLowerCase().includes(searchValue.toLowerCase()),
       );
 
 export const preventUpdateDepartures = (event, pathname) => {
@@ -51,3 +51,24 @@ export const listHeaderColumns = [
   { id: 'id-5', class: 'list-item-cell_airline', name: 'Airline' },
   { id: 'id-6', class: 'list-item-cell_flight', name: 'Flight' },
 ];
+
+export const mapFlights = flightsArray => {
+  const mapedArr = flightsArray.map(flight => {
+    const flightDep = {
+      id: flight.ID,
+      term: flight.term,
+      localTime: !flight['airportFromID.city_en'] ? flight.timeDepShedule : flight.timeToStand,
+      airlineName: flight.airline.en.name,
+      airlineLogo: flight.airline.en.logoSmallName,
+      timeLandFact: flight.timeLandFact,
+      airport: flight['airportToID.city_en'] || flight['airportFromID.city_en'],
+      codeShareData: flight.codeShareData[0].codeShare,
+      timeTakeofFact: flight.timeTakeofFact,
+      timeDepShedule: flight.timeDepShedule,
+      timeToStand: flight.timeToStand,
+      status: flight.status,
+    };
+    return flightDep;
+  });
+  return mapedArr;
+};
