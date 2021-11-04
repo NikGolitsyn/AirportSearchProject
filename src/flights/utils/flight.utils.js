@@ -11,7 +11,7 @@ export const getFlightStatus = (status, timeTakeofFact, timeLandFact) => {
     'Boarding',
     'Gate closed',
     'In flight',
-    `Landed at ${moment(timeLandFact).format('H:mm')}`,
+    `Landed ${moment(timeLandFact).format('H:mm')}`,
     'Departure is delayed',
     'Cancelled',
   ];
