@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import ListElement from './ListElement.jsx';
 import { getFlightStatus } from '../../utils/flight.utils';
 import { selectClass } from '../../utils/styles.utils';
 
@@ -21,27 +22,27 @@ const Flight = ({
 
   return (
     <li className="search-results__list-item">
-      <span className="list-item-cell list-item-cell_terminal">
+      <ListElement classList="list-item-cell_terminal">
         <span
           className={`list-item-cell_term ${selectClass(
             'list-item-cell_term-A',
-            'list-item-cell_term-B',
+            'list-item-cell_term-D',
             term !== 'A',
           )}`}
         >
           {term}
         </span>
-      </span>
-      <span className="list-item-cell list-item-cell_time">{moment(localTime).format('H:mm')}</span>
-      <span className="list-item-cell list-item-cell_way">{airport}</span>
-      <span className="list-item-cell list-item-cell_status">
-        {getFlightStatus(status, timeTakeofFact, timeLandFact)}
-      </span>
-      <span className="list-item-cell list-item-cell_airline">
+      </ListElement>
+      <ListElement classList="list-item-cell_time" value={moment(localTime).format('H:mm')} />
+      <ListElement classList="list-item-cell_way" value={airport} />
+      <ListElement
+        classList="list-item-cell_status"
+        value={getFlightStatus(status, timeTakeofFact, timeLandFact)}
+      />
+      <ListElement classList="list-item-cell_airline" value={airlineName}>
         <img className="list-item-cell_logo" src={airlineLogo} />
-        {airlineName}
-      </span>
-      <span className="list-item-cell list-item-cell_flight">{codeShareData}</span>
+      </ListElement>
+      <ListElement classList="list-item-cell_flight" value={codeShareData} />
     </li>
   );
 };

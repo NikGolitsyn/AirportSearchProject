@@ -1,15 +1,11 @@
-import React from "react";
-import ListHeaderElement from "./ListHeaderElement.jsx";
-import { listHeaderColumns } from "../../utils/flight.utils";
+import React from 'react';
+import ListElement from './ListElement.jsx';
+import { listColumns } from '../../utils/styles.utils';
 
 const ListHeader = () => (
   <li className="search-results__list-item search-results__list-item-header">
-    {listHeaderColumns.map((column) => (
-      <ListHeaderElement
-        key={column.id}
-        addClass={column.class}
-        value={column.name}
-      />
+    {listColumns.map(column => (
+      <ListElement key={column.id} classList={column.class} value={column.name} />
     ))}
   </li>
 );

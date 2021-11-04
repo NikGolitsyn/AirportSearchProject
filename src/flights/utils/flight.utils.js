@@ -43,15 +43,6 @@ export const preventUpdateArrivals = (event, pathname) => {
   return event.preventDefault();
 };
 
-export const listHeaderColumns = [
-  { id: 'id-1', class: 'list-item-cell_terminal', name: 'Terminal' },
-  { id: 'id-2', class: 'list-item-cell_time', name: 'Local time' },
-  { id: 'id-3', class: 'list-item-cell_way', name: 'Destination' },
-  { id: 'id-4', class: 'list-item-cell_status', name: 'Status' },
-  { id: 'id-5', class: 'list-item-cell_airline', name: 'Airline' },
-  { id: 'id-6', class: 'list-item-cell_flight', name: 'Flight' },
-];
-
 export const mapFlights = flightsArray => {
   const mapedArr = flightsArray.map(flight => {
     const flightDep = {
