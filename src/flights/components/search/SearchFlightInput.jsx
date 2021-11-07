@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import qs from 'qs';
 import { setQueryParams } from '../../utils/query.utils';
@@ -23,17 +23,6 @@ const SearchFlightInput = () => {
 
     return history.push({ pathname, search: setQueryParams(query, input) });
   };
-
-  useEffect(() => {
-    if (!pathname.includes('departures') && !pathname.includes('arrivals')) {
-      return null;
-    }
-
-    return history.push({
-      pathname,
-      search: setQueryParams(query, inputFieldValue),
-    });
-  }, [pathname]);
 
   return (
     <SearchForm

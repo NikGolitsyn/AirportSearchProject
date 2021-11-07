@@ -19,10 +19,6 @@ const FlightsList = ({ sortedFlights, getFlights }) => {
   const query = qs.parse(search.substr(1));
   const searchValue = query.search ? query.search : '';
 
-  if (!query.date) {
-    return null;
-  }
-
   const flights = setFlights(searchValue, sortedFlights);
 
   if (flights.length === 0 && searchValue !== '') {

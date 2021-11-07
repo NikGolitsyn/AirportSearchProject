@@ -11,7 +11,7 @@ const ListElement = ({ value, classList, children }) => (
 export default ListElement;
 
 ListElement.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   classList: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
 };

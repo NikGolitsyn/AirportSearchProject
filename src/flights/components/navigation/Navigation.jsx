@@ -5,13 +5,26 @@ import ArrivalsButton from './ArrivalsButton.jsx';
 import { preventUpdateDepartures, preventUpdateArrivals } from '../../utils/flight.utils';
 
 const Navigation = () => {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+
   return (
     <div className="navigation">
-      <Link to={`/departures`} onClick={event => preventUpdateDepartures(event, pathname)}>
+      <Link
+        to={{
+          pathname: '/departures',
+          search,
+        }}
+        onClick={event => preventUpdateDepartures(event, pathname)}
+      >
         <DeparturesButton />
       </Link>
-      <Link to={`/arrivals`} onClick={event => preventUpdateArrivals(event, pathname)}>
+      <Link
+        to={{
+          pathname: '/arrivals',
+          search,
+        }}
+        onClick={event => preventUpdateArrivals(event, pathname)}
+      >
         <ArrivalsButton />
       </Link>
     </div>
