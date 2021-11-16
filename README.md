@@ -1,4 +1,4 @@
-# ReduxSearchProject
+# AirportSearchProject
 
 ### [Site link](https://ecstatic-hypatia-a835c6.netlify.app/)
 
