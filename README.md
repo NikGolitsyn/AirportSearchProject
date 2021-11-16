@@ -2,9 +2,9 @@
 
 ### [Site link](https://ecstatic-hypatia-a835c6.netlify.app/)
 
-To build project in production mode use command: npm run build
+To build project in production mode use command: ### `npm run build`
 
-To build project in development mode use command: npm start
+To build project in development mode use command: ### `npm start`
 
 ### The tech stack is:
 
